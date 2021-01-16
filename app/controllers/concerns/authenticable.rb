@@ -4,10 +4,7 @@ module Authenticable
   def current_user
     return @current_user if @current_user
 
-    header = request.headers['Authorization']
-    return nil if header.nil?
-
-    decoded = JsonWebToken.decode(header)
+    decoded = handle_headers(request)
 
     @current_user =
       begin
@@ -15,6 +12,21 @@ module Authenticable
       rescue StandardError
         nil
       end
+  end
+
+  private
+
+  def handle_headers(request)
+    header = request.headers['Authorization']
+    return nil if header.nil?
+
+    decode(header)
+  end
+
+  def decode(header)
+    JsonWebToken.decode(header)
+  rescue StandardError
+    nil
   end
 
   protected
