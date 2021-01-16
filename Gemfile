@@ -71,6 +71,8 @@ group :test do
   gem 'webmock'
   # One-liner tests for common Rails functionality.
   gem 'shoulda-matchers', '~> 4.0'
+  # Code coverage for test suites
+  gem 'simplecov', require: false
 end
 
 group :development do

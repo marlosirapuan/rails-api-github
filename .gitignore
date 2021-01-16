@@ -32,3 +32,12 @@
 
 # Environment configuration
 .env
+
+# Other
+/coverage
+.byebug_history
+.vscode
+.DS_Store
+*.gzip
+*.sw*
+

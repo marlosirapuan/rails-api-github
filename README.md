@@ -46,6 +46,11 @@ VCR_MODE=rec bundle exec rspec
 
 ## Extras
 
+Rubocop (linter)
+```sh
+rubocop
+```
+
 If you need to edit the credentials:
 ```sh
 EDITOR=vim bin/rails credentials:edit
