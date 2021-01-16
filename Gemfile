@@ -7,8 +7,10 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use sqlite3 as the database for Active Record (Heroku does not support: https://devcenter.heroku.com/articles/sqlite3)
+# gem 'sqlite3', '~> 1.4'
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,6 +39,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 
 group :development, :test do
+  # Load environment variables from .env into ENV
+  gem 'dotenv-rails', '~> 2.7', groups: %i[development test]
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use Pry as your rails console.
