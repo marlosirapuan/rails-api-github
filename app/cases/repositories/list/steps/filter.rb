@@ -40,8 +40,13 @@ class Repositories::List::Steps::Filter < Micro::Case
     {
       total_count: @total_count,
       page: params[:page].to_i,
-      per_page: params[:per_page].to_i
+      per_page: params[:per_page].to_i,
+      pages: total_pages
     }
+  end
+
+  def total_pages
+    (@total_count * 1.0 / params[:per_page].to_i).ceil.to_i
   end
 
   def handle_request

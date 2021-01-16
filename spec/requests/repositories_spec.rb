@@ -41,6 +41,11 @@ RSpec.describe 'Api::V1::Repositories', type: :request do
         response_json = JSON.parse(response.body)
         expect(response_json.dig('data', 'paginate', 'per_page')).to eq(5)
       end
+
+      it 'returns total pages' do
+        response_json = JSON.parse(response.body)
+        expect(response_json.dig('data', 'paginate', 'pages')).to be > 1
+      end
     end
 
     context 'when pass invalid params' do
