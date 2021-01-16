@@ -109,6 +109,8 @@ bin/rails s
 
 ### Authenticate
 
+[POST] Endpoint: `http://localhost:3000/api/v1/auth`
+
 Authenticate to receive the access token
 ```sh
 curl -X POST "http://localhost:3000/api/v1/auth" \
@@ -121,7 +123,9 @@ Response with your token:
 {"token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MTA4MjA1NzB9.EWFWXXbTpUbHFLRuaw4uR5-eLDXt7VjFBmmnMoMBORg"}
 ```
 
-### Repositories
+### Repositories (List)
+
+[GET] Endpoint: `http://localhost:3000/api/v1/list_repositories`
 
 List repositories from Github
 
@@ -149,4 +153,41 @@ Example:
 curl -X GET "http://localhost:3000/api/v1/list_repositories?page=1&per_page=10" \
   -H "Content-Type: application/json" \
   -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MTA4MjA1NzB9.EWFWXXbTpUbHFLRuaw4uR5-eLDXt7VjFBmmnMoMBORg"
+```
+
+### Repositories (Search)
+
+[GET] Endpoint: `http://localhost:3000/api/v1/search_repositories`
+
+Search repositories from Github
+
+```sh
+curl -X GET "http://localhost:3000/api/v1/search_repositories" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: YOUR-TOKEN-HERE"
+```
+
+Response for request:
+```json
+{"data":{"paginate":{"total_count":215590,"page":1,"per_page":2,"pages":107795},"repositories":[{"name":"typedruby/typedruby","description":"Gradual static typing for Ruby","stars":104,"forks":0,"author":"typedruby"},{"name":"kyrylo/system_browser_client","description":"Ruby code browser","stars":61,"forks":4,"author":"kyrylo"}]}}
+```
+
+Parameters allowed:
+- **term**: term to search
+- **page**: current page
+  - 1
+- **per_page**: total results per page
+  - 5
+- **sort**: sorter by forks/starts (default is 'forks')
+  - forks
+- **order**: order to filter asc/desc (default is 'asc')
+  - asc
+- **language**: language to filter (default is 'ruby')
+  - ruby
+
+Example:
+```sh
+curl -X GET "http://localhost:3000/api/v1/search_repositories?term=ruby&page=1&per_page=2" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MTA4NTY1MTZ9.Eb1sJjagX3q8tlixl9Lnbuivu6jH3LL7gfDM4_7mwGI"
 ```
