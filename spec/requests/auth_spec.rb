@@ -8,7 +8,7 @@ RSpec.describe 'Api::V1::AuthController', type: :request do
   let(:not_authorized_params)  { { name: 'User', email: 'demo@demo.com', password: 'invalid' } }
 
   describe 'POST /auth' do
-    context 'when pass valid params' do
+    context 'when pass authorized params' do
       before do
         User.create(authorized_params)
         post '/api/v1/auth', params: authorized_params
