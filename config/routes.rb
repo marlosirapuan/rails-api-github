@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :auth, only: [:create]
-      resources :repositories, only: [:index]
+      resources :list_repositories, only: [:index]
       resources :search_repositories, only: [:index]
     end
   end

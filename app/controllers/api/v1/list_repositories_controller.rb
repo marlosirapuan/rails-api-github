@@ -4,7 +4,7 @@ require 'rest-client'
 
 module Api
   module V1
-    class RepositoriesController < ApplicationController
+    class ListRepositoriesController < ApplicationController
       def index
         ::Repositories::List::Flow
           .call(params: params)

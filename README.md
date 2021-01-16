@@ -124,7 +124,7 @@ Response with your token:
 List repositories from Github
 
 ```sh
-curl -X GET "http://localhost:3000/api/v1/repositories" \
+curl -X GET "http://localhost:3000/api/v1/list_repositories" \
   -H "Content-Type: application/json" \
   -H "Authorization: YOUR-TOKEN-HERE"
 ```
@@ -144,7 +144,7 @@ Parameters allowed:
 
 Example:
 ```sh
-curl -X GET "http://localhost:3000/api/v1/repositories?page=1&per_page=10" \
+curl -X GET "http://localhost:3000/api/v1/list_repositories?page=1&per_page=10" \
   -H "Content-Type: application/json" \
   -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MTA4MjA1NzB9.EWFWXXbTpUbHFLRuaw4uR5-eLDXt7VjFBmmnMoMBORg"
 ```

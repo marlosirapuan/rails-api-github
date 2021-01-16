@@ -3,18 +3,18 @@
 require 'rails_helper'
 
 # rubocop: disable Metrics/BlockLength
-RSpec.describe 'Api::V1::SearchRepositories', type: :request do
+RSpec.describe 'Api::V1::ListRepositories', type: :request do
   let(:user)    { create(:user) }
   let(:header)  { { 'Authorization' => JsonWebToken.encode(user_id: user.id) } }
 
-  let(:search_params) { { term: 'rails', language: 'ruby', page: 1, per_page: 5 } }
+  let(:list_params) { { type: 'public', page: 1, per_page: 5 } }
 
-  describe 'GET /search_repositories' do
+  describe 'GET /repositories' do
     context 'when pass valid params' do
       before do
-        VCR.use_cassette('search_found_repositories') do
-          get '/api/v1/search_repositories', params: search_params,
-                                             headers: header
+        VCR.use_cassette('list_found_repositories') do
+          get '/api/v1/list_repositories', params: list_params,
+                                           headers: header
         end
       end
 
@@ -48,13 +48,13 @@ RSpec.describe 'Api::V1::SearchRepositories', type: :request do
       end
     end
 
-    context 'when not finding repositores' do
-      let(:search_params) { { term: 'xptoxx123' } }
+    context 'when pass invalid params' do
+      let(:list_params) { { type: 'xpto', page: 1, per_page: 5 } }
 
       before do
-        VCR.use_cassette('search_none_repositories') do
-          get '/api/v1/search_repositories', params: search_params,
-                                             headers: header
+        VCR.use_cassette('list_none_repositories') do
+          get '/api/v1/list_repositories', params: list_params,
+                                           headers: header
         end
       end
 

@@ -106,7 +106,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Sat, 16 Jan 2021 21:17:44 GMT
+      - Sat, 16 Jan 2021 21:32:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -138,19 +138,19 @@ http_interactions:
       X-Ratelimit-Limit:
       - '10'
       X-Ratelimit-Remaining:
-      - '8'
-      X-Ratelimit-Reset:
-      - '1610831923'
-      X-Ratelimit-Used:
       - '2'
+      X-Ratelimit-Reset:
+      - '1610832794'
+      X-Ratelimit-Used:
+      - '8'
       Accept-Ranges:
       - bytes
       Content-Length:
       - '72'
       X-Github-Request-Id:
-      - F8B0:6364:FFFD79:230AFA3:600357F8
+      - F96E:1430:1D46579:30BD75B:60035B61
     body:
       encoding: ASCII-8BIT
       string: '{"total_count":0,"incomplete_results":false,"items":[]}'
-  recorded_at: Sat, 16 Jan 2021 21:17:43 GMT
+  recorded_at: Sat, 16 Jan 2021 21:32:17 GMT
 recorded_with: VCR 6.0.0
