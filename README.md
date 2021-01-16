@@ -1,5 +1,7 @@
 # API-Github
 
+![Assure Quality](https://github.com/marlosirapuan/rails-api-github/workflows/Assure%20Quality/badge.svg)
+
 Small Rails application to handle some informations with GithubAPI.
 
 ## Installation (Manual)
