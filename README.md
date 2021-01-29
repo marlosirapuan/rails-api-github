@@ -19,6 +19,7 @@ https://gorails.com/setup/ubuntu/20.10
 
 Copy env files:
 ```sh
+touch .env
 cp .env.example .env
 ```
 
